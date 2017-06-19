@@ -1,0 +1,19 @@
+<mvc:View controllerName="com.lbrands.assortments.controller.Master" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:semantic="sap.m.semantic">
+	<semantic:MasterPage navButtonPress="onNavBack" showNavButton="false" class="masterPage">
+		<semantic:subHeader >
+			<Bar id="headerBar" class="subHeader">
+				<contentMiddle>
+					<Image id="idProfilePhoto" height="10rem"/>
+				</contentMiddle>
+			</Bar>
+		</semantic:subHeader>
+		<semantic:content>
+			<List id="list" class="list" selectionChange="onSelectionChange" mode="SingleSelectMaster" updateFinished="onUpdateFinished">
+				<StandardListItem title="Templates"/>
+				<StandardListItem title="Templates by Season" visible="false"/>
+				<StandardListItem title="Workbooks"/>
+			</List>
+		</semantic:content>
+	</semantic:MasterPage>
+</mvc:View>

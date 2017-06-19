@@ -1,0 +1,19 @@
+<mvc:View controllerName="com.lbrands.assortments.controller.Template" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic" xmlns:l="sap.ui.layout" xmlns:footerbar="sap.ushell.ui.footerbar">
+	<Page navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="Templates" showHeader="false" busy="{detailView>/busy}"
+		busyIndicatorDelay="{detailView>/delay}">
+		<content>
+			<l:VerticalLayout id="idTableContainer">
+				<core:Fragment fragmentName="com.lbrands.assortments.fragments.TemplateTable" type="XML"/>
+			</l:VerticalLayout>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="Create New" icon="sap-icon://add" press="onTemplateAdd"/>
+					<!--<Button text="Edit" icon="sap-icon://edit" press="onEnableTemplateEdit"/>-->
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

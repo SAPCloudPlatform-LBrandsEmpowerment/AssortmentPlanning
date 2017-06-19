@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Table noDataText="No Workbooks Available" id="idWorkbookTable">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="Workbooks" level="H2"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<columns>
+			<Column width="15rem">
+				<header>
+					<Label text="Workbook Name"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="Template"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="Category"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="Emotional Space"/>
+				</header>
+			</Column>
+			<Column width="1rem" visible="{workbook>/editEnabled}">
+			</Column>
+		</columns>
+	</Table>
+</core:FragmentDefinition>

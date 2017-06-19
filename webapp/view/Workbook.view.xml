@@ -1,0 +1,23 @@
+<mvc:View controllerName="com.lbrands.assortments.controller.Workbook" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic" 
+	xmlns:l="sap.ui.layout"
+	xmlns:footerbar="sap.ushell.ui.footerbar">
+	<Page navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="Workbooks" showHeader="false"
+		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+		<content>
+			<l:VerticalLayout id="idTableContainer">
+				<core:Fragment fragmentName="com.lbrands.assortments.fragments.WorkbookTable" type="XML"/>
+			</l:VerticalLayout>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="Create New" icon="sap-icon://add" visible="{= ${workbook>/editEnabled} ? false : true }" press="onAddWorkbook"/>
+					<Button text="Edit" icon="sap-icon://edit" visible="{= ${workbook>/editEnabled} ? false : true }" press="onEditWorkbook"/>
+					<Button text="Save" icon="sap-icon://save" press="onSave" visible="{workbook>/editEnabled}"/>
+					<Button text="Cancel" icon="sap-icon://sys-cancel" press="onCancel" visible="{workbook>/editEnabled}"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

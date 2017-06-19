@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Table noDataText="No Templates Available" items="{/Templates}" keyboardMode="Edit">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="Templates" level="H2"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<items>
+			<ColumnListItem type="Inactive">
+				<cells>
+					<Text text="{TemplateName}"/>
+					<Text text="{IsActive}"/>
+					<Text text="{path: 'CreateDate', type: 'sap.ui.model.type.Date', formatOptions: { style: 'long' }}"></Text>
+					
+					<core:Icon src="sap-icon://edit"  press="onTemplateEdit"/>
+					<core:Icon src="sap-icon://delete" press="onTemplateDelete">
+						<core:customData>
+							<core:CustomData key="templateId" value="{TemplateID}"/>
+						</core:customData>
+					</core:Icon>
+					
+					
+					<!--<Button icon="sap-icon://edit" visible="{template>/editEnabled}" press="onTemplateEdit"/>
+					<Button icon="sap-icon://delete" visible="{template>/editEnabled}" press="onTemplateDelete">
+						<customData>
+							<core:CustomData key="templateId" value="{TemplateID}"/>
+						</customData>
+					</Button>-->
+				</cells>
+			</ColumnListItem>
+		</items>
+		<columns>
+			<Column>
+				<header>
+					<Label text="Template Name"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="IsActive"/>
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Label text="Created Date"/>
+				</header>
+			</Column>
+			<Column width="2rem">
+			</Column>
+			<Column width="2rem">
+			</Column>
+		</columns>
+	</Table>
+</core:FragmentDefinition>

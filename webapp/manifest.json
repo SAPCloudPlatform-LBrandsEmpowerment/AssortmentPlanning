@@ -1,0 +1,210 @@
+{
+	"_version": "1.5.0",
+	"sap.app": {
+		"id": "com.lbrands.assortmentsAssortmentPlanning",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/hanaservice",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"northwindService": {
+				"uri": "/northwind/V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "ui5template.2masterdetailcrud",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://detail-view",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "com.lbrands.assortments.view.App",
+			"type": "XML",
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.f": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.lbrands.assortments.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"settings": {
+					"metadataUrlParams": {
+						"sap-documentation": "heading"
+					},
+					"defaultBindingMode": "TwoWay"
+				}
+			},
+			"appContext": {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"fields": {
+				"type": "sap.ui.model.json.JSONModel"
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.lbrands.assortments.view",
+				"controlId": "idAppControl",
+				"controlAggregation": "detailPages",
+				"bypassed": {
+					"target": [
+						"master",
+						"notFound"
+					]
+				},
+				"async": "true"
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "master",
+					"target": [
+						"master",
+						"template"
+					]
+				},
+				{
+					"pattern": "Assortment/{artifactId}",
+					"name": "object",
+					"target": [
+						"master"
+					]
+				},
+				{
+					"pattern": "Workbooks/{workbookContext}",
+					"name": "WorkbookDetails",
+					"target": [
+						"workbookdetails"
+					]
+				},
+				{
+					"pattern": "notFound",
+					"name": "notFound",
+					"target": [
+						"notFound"
+					]
+				}
+			],
+			"targets": {
+				"master": {
+					"viewName": "Master",
+					"viewLevel": 1,
+					"viewId": "master",
+					"controlId": "idSplitAppControl",
+					"controlAggregation": "masterPages"
+					
+				},
+				"workbook": {
+					"viewName": "Workbook",
+					"viewId": "Workbook",
+					"controlId": "idSplitAppControl",
+					"viewLevel": 1
+				},
+				"template": {
+					"viewName": "Template",
+					"viewId": "Template",
+					"controlId": "idSplitAppControl",
+					"viewLevel": 1
+				},
+				"workbookdetails": {
+					"viewName": "WorkbookDetails",
+					"viewId": "WorkbookDetails",
+					"controlAggregation": "pages",
+					"controlId": "idAppControl",
+					"viewLevel": 2
+				},
+				
+				"createWorkbook": {
+					"viewName": "CreateWorkbook",
+					"controlId": "idSplitAppControl",
+					"viewLevel": 2
+				},
+				"createTemplate": {
+					"viewName": "CreateTemplate",
+					"controlId": "idSplitAppControl",
+					"viewLevel": 2
+				},
+				"detailObjectNotFound": {
+					"viewName": "DetailObjectNotFound",
+					"controlId": "idSplitAppControl",
+					"viewId": "detailObjectNotFound"
+				},
+				"detailNoObjectsAvailable": {
+					"viewName": "DetailNoObjectsAvailable",
+					"controlId": "idSplitAppControl",
+					"viewId": "detailNoObjectsAvailable"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				}
+			}
+		}
+	}
+}

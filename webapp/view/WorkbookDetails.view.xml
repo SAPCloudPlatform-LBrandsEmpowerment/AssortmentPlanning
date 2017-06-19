@@ -1,0 +1,33 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="com.lbrands.assortments.controller.WorkbookDetails">
+	<Page title="Workbook Details" showNavButton="true" navButtonPress="navBack" id="workbookDetailsPage">
+		<content>
+			<Table id="idSpreadsheetTable" mode="SingleSelectMaster" growing="true" growingThreshold="50" growingScrollToLoad="true">
+				<headerToolbar>
+					<Toolbar>
+						<!--<Title id="title" text="Workbook Details"></Title>-->
+						<ToolbarSpacer/>
+						<!--<ToggleButton icon="sap-icon://complete" tooltip="Show available products only" press="toggleAvailabilityFilter"
+									pressed="{ui>/availabilityFilterOn}"/>
+								<ToggleButton icon="sap-icon://grid" tooltip="Enable / Disable Cell Filter Functionality" pressed="{ui>/cellFilterOn}"/>
+								<Button icon="sap-icon://decline" tooltip="Clear all filters" press="clearAllFilters"/>-->
+						<ToolbarSeparator/>
+						<Button text="Create Blank Record" press="_createBlankRecord"/>
+						<Button text="Copy Row" press="_copyRecord"/>
+						<Button text="Delete Row" press="_deleteRecord"/>
+						<Button text="Authorize" press="_onAuthorize"/>
+						<SearchField placeholder="Search by Flex Id" value="{workbookcontext>/filterquery}" search="filterGlobally" width="15rem"/>
+					</Toolbar>
+				</headerToolbar>
+			</Table>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="Save" press="onWorkbookChangesSave" type="Emphasized"/>
+					<Button text="Cancel" press="navBack" type="Emphasized"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

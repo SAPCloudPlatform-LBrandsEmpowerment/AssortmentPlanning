@@ -1,0 +1,58 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" 
+xmlns:html="http://www.w3.org/1999/xhtml" controllerName="com.lbrands.assortments.controller.CreateTemplate">
+	<App>
+		<pages>
+			<Page title="Manage Templates">
+				<content>
+					<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout" width="70%">
+						<sap.ui.layout.form:content>
+							<!--<Label xmlns="sap.m" text="ID"/>
+							<Input xmlns="sap.m" width="100%" value="{TemplateID}" enabled="false"/>-->
+							<Label xmlns="sap.m" text="Name"/>
+							<Input xmlns="sap.m" width="100%" value="{TemplateName}"/>
+							<Label xmlns="sap.m" text="Created Date"/>
+							<DatePicker width="100%" dateValue="{CreateDate}"/>
+							<Label text="IsActive" width="100%"/>
+							<CheckBox selected="{path:'IsActive', formatter: '.formatter.formatStringToBoolean'}"/>
+							
+							
+						</sap.ui.layout.form:content>
+					</sap.ui.layout.form:SimpleForm>
+					<HBox xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" width="100%" alignContent="Center">
+						<VBox width="40%">
+							<List headerText="Select Fields" id="idFieldsList" includeItemInSelection="true" mode="MultiSelect" items="{/Fields}">
+								<StandardListItem title="{DisplayName}">
+									<customData>
+										<core:CustomData key="fieldId" value="{FieldID}"/>
+									</customData>
+								</StandardListItem>
+							</List>
+						</VBox>
+						<VBox width="10%" justifyContent="Center" alignContent="Center" alignItems="Center">
+							<Button icon="sap-icon://navigation-right-arrow" press="onFieldSelect"/>
+							<Button icon="sap-icon://navigation-left-arrow" press="onFieldDeselect"/>
+						</VBox>
+						<VBox width="40%">
+							<List headerText="Template Fields" id="idTemplateFieldsList" mode="MultiSelect" items="{TemplateFields}">
+								<StandardListItem title="{DisplayName}">
+									<customData>
+										<core:CustomData key="fieldId" value="{FieldID}"/>
+									</customData>
+								</StandardListItem>
+							</List>
+						</VBox>
+					</HBox>
+				</content>
+				<footer>
+					<Bar>
+						<contentLeft/>
+						<contentRight>
+							<Button text="Save" press="onSave" width="100px"  type="Emphasized"/>
+							<Button text="Cancel" press="onCancel" width="100px" type="Emphasized"/>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

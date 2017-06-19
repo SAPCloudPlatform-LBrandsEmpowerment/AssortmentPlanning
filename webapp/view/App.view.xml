@@ -1,0 +1,10 @@
+<mvc:View controllerName="com.lbrands.assortments.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" busy="{appView>/busy}"
+	busyIndicatorDelay="{appView>/delay}" xmlns="sap.m">
+	<!--<SplitApp id="idSplitAppControl"/>
+	<App id="idAppControl" visible="false"/>-->
+	<NavContainer id="idAppControl">
+		<pages>
+			<SplitApp id="idSplitAppControl" visible="{appContext>/masterdetail}"/>
+		</pages>
+	</NavContainer>
+</mvc:View>
