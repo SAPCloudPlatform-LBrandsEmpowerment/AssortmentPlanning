@@ -1,0 +1,11 @@
+#Password=<< Existing password/certificate removed on export >>
+#
+#Wed Jun 28 12:47:45 UTC 2017
+Type=HTTP
+Authentication=BasicAuthentication
+Name=hana
+WebIDEEnabled=true
+CloudConnectorVersion=2
+ProxyType=Internet
+URL=https\://lbrandsi077837trial.hanatrial.ondemand.com/tmp/odata/data.xsodata
+User=I077837
